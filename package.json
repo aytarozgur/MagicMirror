@@ -85,7 +85,9 @@
 		"moment": "^2.29.3",
 		"node-fetch": "^2.6.7",
 		"node-ical": "^0.15.1",
-		"socket.io": "^4.5.1"
+		"python-shell": "^3.0.1",
+		"socket.io": "^4.5.1",
+		"sqlite3": "^5.1.2"
 	},
 	"_moduleAliases": {
 		"node_helper": "js/node_helper.js",

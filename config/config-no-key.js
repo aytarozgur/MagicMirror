@@ -31,9 +31,13 @@ let config = {
 															// or IPv4 range of 192.168.3.0 --> 192.168.3.15 use CIDR format :
 															// ["127.0.0.1", "::ffff:127.0.0.1", "::1", "::ffff:192.168.3.0/28"],
 
-	useHttps: false, 		// Support HTTPS or not, default "false" will use HTTP
-	httpsPrivateKey: "", 	// HTTPS private key path, only require when useHttps is true
-	httpsCertificate: "", 	// HTTPS Certificate path, only require when useHttps is true
+	//useHttps: false, 		// Support HTTPS or not, default "false" will use HTTP
+	//httpsPrivateKey: "", 	// HTTPS private key path, only require when useHttps is true
+	//httpsCertificate: "", 	// HTTPS Certificate path, only require when useHttps is true
+
+	useHttps: true,                                                         // Support HTTPS or not, default "false" will use HTTP
+	httpsPrivateKey: "xxx",     // HTTPS private key path, only require when useHttps is true
+	httpsCertificate: "xxx",    // HTTPS Certificate path, only require when useHttps is true
 
 	language: "tr",
 	locale: "tr-TR",
@@ -83,7 +87,15 @@ let config = {
 				type: "current",
 				location: "Eskisehir",
 				locationID: "315202", //ID from http://bulk.openweathermap.org/sample/city.list.json.gz; unzip the gz file and find your city
-				apiKey: "Your Api Key"
+				apiKey: "xxx"
+			}
+		},
+		{
+			module: "MMM-Snake",
+			position: "fullscreen_below",
+			config: {
+				startsize: 5,
+				speed: 5
 			}
 		},
 		{
@@ -95,7 +107,7 @@ let config = {
 				type: "forecast",
 				location: "Eskisehir",
 				locationID: "315202", //ID from http://bulk.openweathermap.org/sample/city.list.json.gz; unzip the gz file and find your city
-				apiKey: "Your Api Key"
+				apiKey: "xxx"
 			}
 		},
 		{
@@ -127,7 +139,7 @@ let config = {
 			module: "MMM-cryptocurrency",
 			position: "top_left",
 			config: {
-				apikey: 'Your Api Key',
+				apikey: 'xxx',
 				currency: ['ethereum', 'bitcoin'],
 				conversion: 'USD',
 				headers: ['change24h', 'change1h', 'change7d'],
@@ -141,10 +153,10 @@ let config = {
 		      position: 'top_left',
 		      config: {
 			showCoverArt: false,
-			clientID: 'Your Client ID',
-			clientSecret: 'Your Client Secret',
-			accessToken: 'Your Access Token',
-			refreshToken: 'Your Refresh Token'
+			clientID: 'xxx',
+			clientSecret: 'xxx',
+			accessToken: 'xxx',
+			refreshToken: 'xxx'
 	      		}
 	    	},
 	    	{
@@ -156,25 +168,76 @@ let config = {
 			width: 500
 		      }
 	    	},
-		/*{
-				module: 'MMM-LICE',
-				position: 'top_left',                 // Best in left, center, or right regions
-				config: { 
-					accessKey: "Your Api Key", // Free account & API Access Key at currencylayer.com
-					source: "USD",                    // USD unless you upgrade from free account
-					symbols: "UAH,EUR,RUB",       // Currency symbols
-					useHeader: false,                 
-					header: "Show me the money",
-					maxWidth: "300px",
-					}
-		},*/
 		{
 		      module: 'MMM-Remote-Control',
 		      header: '',
 		      config: {
 			customCommand: {}
 		      }
-		}
+		},
+		{
+  module: "MMM-MyScoreboard",
+  position: "top_right",
+  classes: "default everyone",
+  header: "My Scoreboard",
+  config: {
+    showLeagueSeparators: true,
+    colored: true,
+    viewStyle: "mediumLogos",
+    sports: [
+      
+      {
+        league: "ENG_PREMIERE_LEAGUE",
+        teams: ["ARS", "TOT", "CHE"]
+      },
+      {
+        league: "UEFA_EUROPA",
+        teams: ["FEN","ARS"]
+      },
+      {
+        league: "NCAAM_MM",
+        label: "March Madness"
+      }
+    ]
+
+  }
+},
+{
+	module: 'MMM-Instagram2020',
+	position: 'top_center',
+	header: 'MMM-Instagram2020',
+	config: {
+	  client_id: 'xxx', // Facebook Instagram App ID
+	  client_secret: 'xxx', // Facebook Instagram App Secret
+	  redirect_uri: 'xxx', // Facebook Instagram App oauth_redirect_uri
+	  animationSpeed: 1000,
+	  updateInterval: 3000,
+	}
+},
+{
+    module: "MMM-EARTH",
+    position: "bottom_center",
+    config: {
+        mode: "Natural",
+        rotateInterval: 15000,
+        MaxWidth: "50%",
+        MaxHeight: "50%",
+    }
+},
+{
+	module: 'MMM-FastNotes', //module name
+	disabled: false,         //false if you want turn on module
+	position: 'top_right',
+	config: {
+		host: "192.168.1.100",  // address of raspberry pi in local network, need for access to WEB UI
+		port: 5000,           // port on host where UI will be accessible via web browser
+		css: 0,               // 0 - current default MM CSS styles; 1 - custom css stile
+		// TextStyle could be "xsmall bright" or "medium bright" or another one defined in /home/pi/MagicMirror/css/main.css, or in your own custom CSS
+		nameTextStyle: "xsmall bright", // style for Note Name
+		contentTextStyle: "normal dimmed" // style for Note Content
+	  }
+},
+
 	]
 };
 
